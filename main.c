@@ -7,12 +7,12 @@
 #include "logger.h"
 
 void print_help() {
-    printf("Usage: myutil [OPTIONS]\n");
-    printf("  -u, --users        Show list of users and home directories\n");
-    printf("  -p, --processes    Show list of running processes\n");
-    printf("  -h, --help         Show this help message\n");
-    printf("  -l, --log PATH     Log output to file at PATH\n");
-    printf("  -e, --errors PATH  Log errors to file at PATH\n");
+    printf("Использование: myutil [Настройки]\n");
+    printf("  -u, --users        Показывает список пользователей\n");
+    printf("  -p, --processes    Показывает процессы\n");
+    printf("  -h, --help         Вывод справки\n");
+    printf("  -l, --log PATH     Запись в лог PATH\n");
+    printf("  -e, --errors PATH  Ошибки при записи в лог PATH\n");
 }
 
 int main(int argc, char *argv[]) {
@@ -42,14 +42,14 @@ int main(int argc, char *argv[]) {
             case 'l':
                 log_file = fopen(optarg, "w");
                 if (!log_file) {
-                    fprintf(stderr, "Error: Unable to open log file: %s\n", optarg);
+                    fprintf(stderr, "Ошибка: Недоступна запись в лог: %s\n", optarg);
                     return 1;
                 }
                 break;
             case 'e':
                 error_file = fopen(optarg, "w");
                 if (!error_file) {
-                    fprintf(stderr, "Error: Unable to open error log file: %s\n", optarg);
+                    fprintf(stderr, "Ошибка: Невозможно записать ошибки в лог: %s\n", optarg);
                     return 1;
                 }
                 break;
